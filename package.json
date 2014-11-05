@@ -1,6 +1,6 @@
 {
   "name": "compute-cmin",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Computes the cumulative minimum of a numeric array.",
   "author": {
     "name": "Athan Reines",
