@@ -47,7 +47,7 @@ function getValue( d ) {
 	return d.x;
 }
 
-var m = mode( arr, getValue );
+var m = cmin( arr, getValue );
 // returns [ 3, 2, 2, 2 ]
 ```
 
