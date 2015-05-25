@@ -22,7 +22,7 @@ var cmin = require( 'compute-cmin' );
 ```
 
 
-#### cmin( arr[, accessor] )
+#### cmin( arr[, options] )
 
 Computes the cumulative minimum of the values in the input `array`.  For numeric `arrays`,
 
@@ -32,6 +32,27 @@ var data = [ 3, 2, 4, 3 ];
 cmax( data );
 // returns [ 3, 2, 2, 2 ]
 ```
+
+
+The function accepts two `options`:
+
+*  __copy__: `boolean` indicating whether to return a new `array` containing the computed means. Default: `true`.
+*  __accessor__: accessor `function` for accessing numerical values in object `arrays`.
+
+To mutate the input `array` (e.g. when input values can be discarded or when optimizing memory usage), set the `copy` option to `false`.
+
+``` javascript
+var data = [  3, 2, 4, 3 ];
+
+var values = cmin( data, 2, {
+	'copy': false
+});
+//returns [ 3, 2, 2, 2 ]
+
+console.log( data === values );
+//returns true
+```
+
 
 For non-numeric `arrays`, provide an accessor `function` for accessing `numeric` values.
 
@@ -47,7 +68,9 @@ function getValue( d ) {
 	return d.x;
 }
 
-var m = cmin( arr, getValue );
+var sum = cmin( arr, {
+	'accessor': getValue
+});
 // returns [ 3, 2, 2, 2 ]
 ```
 
