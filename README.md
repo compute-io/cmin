@@ -16,16 +16,15 @@ For use in the browser, use [browserify](https://github.com/substack/node-browse
 
 ## Usage
 
-To use the module,
 
 ``` javascript
 var cmin = require( 'compute-cmin' );
 ```
 
 
-#### cmin( arr )
+#### cmin( arr[, accessor] )
 
-Computes the cumulative minimum of a numeric `array`.
+Computes the cumulative minimum of the values in the input `array`.  For numeric `arrays`,
 
 ``` javascript
 var data = [ 3, 2, 4, 3 ];
@@ -33,6 +32,27 @@ var data = [ 3, 2, 4, 3 ];
 cmax( data );
 // returns [ 3, 2, 2, 2 ]
 ```
+
+For non-numeric `arrays`, provide an accessor `function` for accessing `numeric` values.
+
+``` javascript
+var arr = [
+	{'x':3},
+	{'x':2},
+	{'x':4},
+	{'x':3},
+];
+
+function getValue( d ) {
+	return d.x;
+}
+
+var m = mode( arr, getValue );
+// returns [ 3, 2, 2, 2 ]
+```
+
+
+__Note__: if provided an empty `array`, the function returns `null`.
 
 
 ## Examples
@@ -67,7 +87,7 @@ The function returns an `array` with a length equal to the original input `array
 
 ### Unit
 
-Unit tests use the [Mocha](http://visionmedia.github.io/mocha) test framework with [Chai](http://chaijs.com) assertions. To run the tests, execute the following command in the top-level application directory:
+Unit tests use the [Mocha](http://mochajs.org) test framework with [Chai](http://chaijs.com) assertions. To run the tests, execute the following command in the top-level application directory:
 
 ``` bash
 $ make test
@@ -91,15 +111,15 @@ $ make view-cov
 ```
 
 
+---
 ## License
 
-[MIT license](http://opensource.org/licenses/MIT). 
+[MIT license](http://opensource.org/licenses/MIT).
 
 
----
 ## Copyright
 
-Copyright &copy; 2014. Athan Reines.
+Copyright &copy; 2014-2015. The Compute.io Authors.
 
 
 [npm-image]: http://img.shields.io/npm/v/compute-cmin.svg

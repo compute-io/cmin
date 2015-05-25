@@ -37,7 +37,10 @@
   "bugs": {
     "url": "https://github.com/compute-io/cmin/issues"
   },
-  "dependencies": {},
+  "dependencies": {
+    "validate.io-array": "^1.0.5",
+    "validate.io-function": "^1.0.2"
+  },
   "devDependencies": {
     "chai": "1.x.x",
     "mocha": "1.x.x",
