@@ -35,11 +35,11 @@ arr = cmin( data );
 ```
 
 
-The function accepts two `options`:
+The function accepts three `options`:
 
 *  __copy__: `boolean` indicating whether to return a new `array` containing the cumulative minima. Default: `true`.
 *  __accessor__: accessor `function` for accessing numerical values in object `arrays`.
-*  __dim__: dimension along which to compute the cumulative product when provided a matrix. Default: `2` (along the columns).
+*  __dim__: dimension along which to compute the cumulative minimum when provided a matrix. Default: `2` (along the columns).
 
 For non-numeric `arrays`, provide an accessor `function` for accessing `numeric` values.
 
@@ -63,7 +63,7 @@ var m = cmin( arr, {
 
 __Note__: the function returns an `array` with a length equal to the original input `array`.
 
-By default, the function computes the cumulative product for a [`matrix`](https://github.com/dstructs/matrix) along the columns (`dim=2`).
+By default, the function computes the cumulative minimum for a [`matrix`](https://github.com/dstructs/matrix) along the columns (`dim=2`).
 
 ``` javascript
 var matrix = require( 'dstructs-matrix' ),

@@ -38,7 +38,7 @@ console.log( 'Accessors: %s\n', out );
 // Typed arrays...
 data = new Int32Array( 100 );
 for ( i = 0; i < data.length; i++ ) {
-	data[ i ] = Math.round( Math.random() * 10 );
+	data[ i ] = Math.round( Math.random() * 100 );
 }
 tmp = cmin( data );
 out = '';
